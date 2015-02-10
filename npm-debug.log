@@ -1,0 +1,90 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'passport-google-oauch' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json node-todo@0.0.0 No repository field.
+6 warn package.json session@0.1.0 bugs['web'] should probably be bugs['url'].
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'passport-google-oauch', null ]
+9 verbose cache add name=undefined spec="passport-google-oauch" args=["passport-google-oauch",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'passport-google-oauch',
+10 verbose parsed url   path: 'passport-google-oauch',
+10 verbose parsed url   href: 'passport-google-oauch' }
+11 silly lockFile a6bc690b-passport-google-oauch passport-google-oauch
+12 verbose lock passport-google-oauch C:\Users\Administrator\AppData\Roaming\npm-cache\a6bc690b-passport-google-oauch.lock
+13 silly lockFile a6bc690b-passport-google-oauch passport-google-oauch
+14 silly lockFile a6bc690b-passport-google-oauch passport-google-oauch
+15 verbose addNamed [ 'passport-google-oauch', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 9dc80e36-passport-google-oauch passport-google-oauch@
+18 verbose lock passport-google-oauch@ C:\Users\Administrator\AppData\Roaming\npm-cache\9dc80e36-passport-google-oauch.lock
+19 silly addNameRange { name: 'passport-google-oauch', range: '*', hasData: false }
+20 verbose request where is /passport-google-oauch
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id f96af2fc624879f2
+23 verbose url raw /passport-google-oauch
+24 verbose url resolving [ 'https://registry.npmjs.org/', './passport-google-oauch' ]
+25 verbose url resolved https://registry.npmjs.org/passport-google-oauch
+26 verbose request where is https://registry.npmjs.org/passport-google-oauch
+27 info trying registry request attempt 1 at 10:50:11
+28 http GET https://registry.npmjs.org/passport-google-oauch
+29 http 404 https://registry.npmjs.org/passport-google-oauch
+30 verbose headers { date: 'Tue, 10 Feb 2015 18:50:17 GMT',
+30 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=0',
+30 verbose headers   'content-length': '52',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   'x-served-by': 'cache-lax1431-LAX',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1423594217.323431,VS0,VE76',
+30 verbose headers   'keep-alive': 'timeout=10, max=50',
+30 verbose headers   connection: 'Keep-Alive' }
+31 silly registry.get cb [ 404,
+31 silly registry.get   { date: 'Tue, 10 Feb 2015 18:50:17 GMT',
+31 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '52',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     'x-served-by': 'cache-lax1431-LAX',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1423594217.323431,VS0,VE76',
+31 silly registry.get     'keep-alive': 'timeout=10, max=50',
+31 silly registry.get     connection: 'Keep-Alive' } ]
+32 silly lockFile 9dc80e36-passport-google-oauch passport-google-oauch@
+33 silly lockFile 9dc80e36-passport-google-oauch passport-google-oauch@
+34 error 404 404 Not Found: passport-google-oauch
+34 error 404
+34 error 404 'passport-google-oauch' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404 It was specified as a dependency of 'node-todo'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Windows_NT 6.1.7601
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "passport-google-oauch"
+37 error cwd C:\Users\Administrator\Desktop\ICC-Mobile-App-Project
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]

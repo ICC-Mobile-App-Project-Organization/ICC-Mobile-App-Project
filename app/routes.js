@@ -7,17 +7,17 @@ module.exports = function(app,passport) {
 
 app.get('/',
 	function(req,res){
-		res.sendfile('public/index.html');
+		res.render('index.ejs');
 	}
 	);
 
-app.get('/profile',
+app.get('/profile',isLoggedIn,
 	function(req,res){
-		res.sendfile('public/profile.html');
+		res.render('profile.ejs', {
+			user : req.user
+		});
 		console.log("current session is :" +req.session.uname);
-		
-	}
-	);
+	});
 
 app.get('/logout', function(req, res) {
 	req.logout();
@@ -26,8 +26,19 @@ app.get('/logout', function(req, res) {
 	console.log(req.session);
 });
 
+app.get('/login',
+	function(req,res){
+		console.log('login load');
+		res.render('login.ejs', { message: req.flash('loginMessage') });
+	}
+	);
 
-app.post('/login',
+//************ need modify auth progress
+app.post('/login',passport.authenticate('local-login', {
+			successRedirect : '/profile', // redirect to the secure profile section
+			failureRedirect : '/login', // redirect back to the signup page if there is an error
+			failureFlash : true // allow flash messages
+		}),
 	
 	function(req,res){
 		req.session.uname =req.body.uname;
@@ -40,19 +51,40 @@ app.post('/login',
 
 	);
 
-app.get('/login',
-	function(req,res){
-		console.log('login load');
-		res.sendfile('public/login.html');
-	}
-	);
+
 
 app.get('/signup',
 	function(req,res){
 		console.log('signup load');
-		res.sendfile('public/signup.html');
+		res.render('signup.ejs', { message: req.flash('signupMessage') });
 	}
 	);
+
+app.post('/signup', passport.authenticate('local-signup', {
+	successRedirect : '/profile', // redirect to the secure profile section
+	failureRedirect : '/signup', // redirect back to the signup page if there is an error
+	failureFlash : true // allow flash messages
+}));
+
+app.get('/unlink/local', isLoggedIn, function(req, res) {
+	var user            = req.user;
+	user.local.email    = undefined;
+	user.local.password = undefined;
+	user.save(function(err) {
+		res.redirect('/profile');
+	});
+});
+app.get('/connect/local', function(req, res) {
+	res.render('connect-local.ejs', { message: req.flash('loginMessage') });
+});
+app.post('/connect/local', passport.authenticate('local-signup', {
+	successRedirect : '/profile', // redirect to the secure profile section
+	failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+	failureFlash : true // allow flash messages
+}));
+
+
+
 
 	app.get('/api/logininfos', function(req, res) {
 		console.log('receive get');
