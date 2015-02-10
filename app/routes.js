@@ -4,21 +4,53 @@ var Logininfo = require('./models/logininfo');
 
 module.exports = function(app,passport) {
 
+
+app.get('/',
+	function(req,res){
+		res.sendfile('public/index.html');
+	}
+	);
+
+app.get('/profile',
+	function(req,res){
+		res.sendfile('public/profile.html');
+		console.log("current session is :" +req.session.uname);
+		
+	}
+	);
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+	req.session = null ;
+	console.log(req.session);
+});
+
+
 app.post('/login',
 	
 	function(req,res){
 		req.session.uname =req.body.uname;
 		console.log(req.body);
+		console.log(req.session);
+
 		console.log("post Login");
-		res.redirect('/#/dashboard');
+		res.redirect('/profile');
 	}
 
 	);
 
 app.get('/login',
 	function(req,res){
-		console.log('receive get');
+		console.log('login load');
 		res.sendfile('public/login.html');
+	}
+	);
+
+app.get('/signup',
+	function(req,res){
+		console.log('signup load');
+		res.sendfile('public/signup.html');
 	}
 	);
 
@@ -69,3 +101,12 @@ app.get('/login',
 	});
 
 };
+
+
+
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated())
+		return next();
+
+	res.redirect('/');
+}

@@ -54,7 +54,7 @@ router.use(function(req, res, next) {
 });
 
 
-require('./app/routes.js')(app);
+require('./app/routes.js')(app,passport);
 
 console.log("App listening on port " + port);
 
