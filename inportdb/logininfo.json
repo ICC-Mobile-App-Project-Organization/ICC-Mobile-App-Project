@@ -1,0 +1,17 @@
+[
+	{
+		"uname":"admin",
+		"upsd":"123",
+		"urole":1
+	},
+	{
+		"uname":"albert",
+		"upsd":"123",
+		"urole":2
+	},
+	{
+		"uname":"yu",
+		"upsd":"123",
+		"urole":3
+	}
+]

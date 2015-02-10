@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/hcc.css">
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="js/Chart.min.js"></script>
+	
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/hcc.js"></script>
+    <script src="js/trends.js"></script>
+    <script type="text/javascript" src="js/showMe.js"></script>
+
+</head>
+
+<body ng-app="routerApp">
+		<div class="container-fluid">
+			<div class="row">
+			<div class="col-md-12">
+
+				<nav class="navbar navbar-default" role="navigation">
+				   
+				    <div class="navbar-header">
+				    	<!--
+				      <a class="navbar-brand" href="#">
+				        <img src="/img/inc.jpg" alt="" class="logo-img" >
+				      </a>
+				      <a ui-sref="dashboard" class="navbar-brand">
+				      	<img src="/img/logo-font.jpg" alt=""  class="logo-img">
+				      </a>
+				  		-->
+				  		<a class="navbar-brand" href="#">
+				  	<span class='logo-font'>Employee Management System</span>
+						 </a>
+				    </div>
+				  
+				  <div class="collapse navbar-collapse logo-go-right">
+				  	<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+				  	 <a ng-click="navbarCollapsed = !navbarCollapsed" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-envelope gobule"></i><i class="fa fa-caret-down gobule"></i></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">message 1</a></li>
+					            <li><a href="#">message 2</a></li>
+					            <li><a href="#">message 3</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 4</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 5</a></li>
+					          </ul>
+						</li>
+					<li class="dropdown">
+				  	 <a ng-click="navbarCollapsed = !navbarCollapsed" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-tasks gobule"></i><i class="fa fa-caret-down gobule"></i></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">message 1</a></li>
+					            <li><a href="#">message 2</a></li>
+					            <li><a href="#">message 3</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 4</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 5</a></li>
+					          </ul>
+						</li>
+					<li class="dropdown">
+				  	 <a ng-click="navbarCollapsed = !navbarCollapsed" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-bell-o gobule"></i><i class="fa fa-caret-down gobule"></i></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">message 1</a></li>
+					            <li><a href="#">message 2</a></li>
+					            <li><a href="#">message 3</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 4</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 5</a></li>
+					          </ul>
+						</li>
+					<li class="dropdown">
+				  	 <a ng-click="navbarCollapsed = !navbarCollapsed" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-user gobule"></i><i class="fa fa-caret-down gobule"></i></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">message 1</a></li>
+					            <li><a href="#">message 2</a></li>
+					            <li><a href="#">message 3</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 4</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">message 5</a></li>
+					          </ul>
+						</li>
+					</ul>
+				  </div>
+				</nav>
+			</div>
+			</div>
+			</div>
+<!-- ********************** nav ***************-->
+	
+	<div class="col-md-12">
+
+
+
+
+		
+			<div class="col-md-3">
+				<ul class="nav nav-pills nav-stacked" role="tablist">
+							<li>
+
+								<div class="input-append">
+								  <input class="span2" type="text" placeholder="Search">
+								  <button class="btn" type="button">
+								  <span class="glyphicon glyphicon-search"></span>
+								</button>
+								</div>
+
+
+								</li>
+							
+							<li >
+								<a ui-sref="home"><i class="fa fa-tachometer gobule"></i> home</a>
+							</li>
+							<li>
+								<a ui-sref="hcc"><i class="fa fa-bar-chart gobule"></i> Headcount Charts</a>
+							</li>
+							<li>
+								<a ui-sref="its"><i class="fa fa-table gobule"></i>Internal Talent Search</a>
+							</li>
+							<li>
+								<a ui-sref="trends"><i class="fa fa-pencil-square-o gobule"></i> Trends</a>
+							</li>
+							<li>
+								  &nbsp;
+							</li>
+							<li>
+								  &nbsp;
+							</li>
+							<li>
+								  &nbsp;
+							</li>
+  
+					</ul>
+				</div>
+			<div class="col-xs-9" ui-view></div>
+
+		
+
+	
+
+
+
+
+
+	</div>
+
+	
+	
+	<div class="col-md-12">
+	<div class="footer">
+		footer
+	</div>
+	</div>
+	
+	
+	
+
+</body>
+</html>

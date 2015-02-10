@@ -1,0 +1,110 @@
+					<div class="col-xs-12">
+							<ol class="breadcrumb">
+								<li><a href="#">Internal Talent Search</a></li>
+							</ol>
+							<hr class="divider">
+					</div> 
+
+					
+
+
+					<div class="col-xs-12">
+					<div class="row">
+					<div class="col-xs-4">
+				        <div class="inner-addon right-addon">
+				          <i class="glyphicon glyphicon-search"></i>
+				          <input type="text" class="form-control" ng-model="lname" placeholder="Search" />
+				        </div>
+						<br>
+						<ol class="breadcrumb">
+						  <li><a href="home/dashboard">Clear All</a></li>
+						  <li class="active">Open</a></li>
+						  <li class="active">Save</li>
+						</ol>
+						<hr class="divider">
+						<br>
+							<div class="container">
+							      
+							    </div>
+
+							          <div class="span4 collapse-group">
+							          <p><a class="btn" sref="#/home/its"><span class="caret"></span> &raquo; Worker Type </a></p>   
+							           <p class="collapse in">
+											<input type="checkbox"> Employee (291) <br><input type="checkbox"> Contingent Worker (31)
+							            </p>
+							           
+							        </div>
+							          <div class="span4 collapse-group">
+							          <p><a class="btn" href=""><span class="caret"></span> &raquo; Critical Job </a></p>   
+							           <p class="collapse in">
+											<input type="checkbox"> False (257) <br> <input type="checkbox"> True (65)
+							            </p>
+							           
+							        </div>
+							          <div class="span4 collapse-group">
+							          <p><a class="btn" href=""><span class="caret"></span> &raquo; Compensation Grade </a></p>   
+							           <p class="collapse in">
+											<input type="checkbox"> Non-Management (150) <br>
+											<input type="checkbox"> Management (48) <br>
+											<input type="checkbox"> Field Sales (36) <br>
+											<input type="checkbox"> Hourly Non-Union (No Steps) (26) <br>
+											<input type="checkbox"> Support Management (20)
+							            </p>
+							           
+							        </div>
+					</div>
+
+					<div class="col-xs-8">
+								<ul class="pagination pagination-sm">
+								  <li><a href="#">&laquo;</a></li>
+								  <li><a href="#">1</a></li>
+								  <li><a href="#">2</a></li>
+								  <li><a href="#">3</a></li>
+								  <li><a href="#">4</a></li>
+								  <li><a href="#">5</a></li>
+								  <li><a href="#">&raquo;</a></li>
+								</ul>
+								<hr class="divider">
+							
+								
+					<div class="col-xs-12">
+						<table class="table table-bordered table-striped" 
+						ng-init="start = 0; end = 5;">
+							 
+							<tr ng-repeat="it in its|filter:lname|slice:start:end">
+								
+								<th>
+									<img src="/img/user-head/user{{$index}}.jpg"  class="user-pic">
+								</th>
+								<th>
+									
+									{{it.lname}}
+										<br>
+									{{it.role}}
+							
+									{{it.email}}
+									
+								</th>
+									
+
+									
+		
+								
+								
+								
+							
+							</tr>
+							</table>
+					</div>
+					</div>
+					</div>
+					</div>
+
+					<div class="jumbotron text-center">
+					    
+					    
+					    <a ui-sref=".list" class="btn btn-primary">List</a>
+					    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a>
+					    
+					</div>
+					<div ui-view></div>

@@ -1,0 +1,11 @@
+{ "_id" : { "$oid" : "54aa3c2989002afb5ffa1a62" }, "uname" : "admin", "upsd" : "123", "urole" : 1 }
+{ "_id" : { "$oid" : "54aa3c8b89002afb5ffa1a63" }, "uname" : "albert", "upsd" : "123", "urole" : 2 }
+{ "_id" : { "$oid" : "54aa3ccb89002afb5ffa1a64" }, "uname" : "yu", "upsd" : "123", "urole" : 3 }
+{ "_id" : { "$oid" : "54ab07eecacfe68c13000002" }, "uname" : "admin1", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab08182a68ca4c01000002" }, "uname" : "admin1", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab08604f1ed68804000002" }, "uname" : "admin1", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab08c64f1ed68804000004" }, "uname" : "admin2", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab0948435856fc0e000002" }, "uname" : "admin3", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab09ff2c3f13841a000002" }, "uname" : "admin3", "upsd" : "123", "urole" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab3d666d323bfc0e000002" }, "uname" : "", "upsd" : "", "urole" : null, "__v" : 0 }
+{ "_id" : { "$oid" : "54ab4285b312a40413000004" }, "uname" : "amd", "upsd" : "123", "urole" : 1, "__v" : 0 }

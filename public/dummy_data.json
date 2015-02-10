@@ -1,0 +1,29 @@
+{ "employees":[
+	{
+	  "name":"Mike Sullivan",
+	   "age": 22,
+	   "class":"C++",
+	   "address":"22 ABC street, Santa Clara, CA",
+	   "id":1
+	}
+	,
+	{
+	  "name":"Daisy",
+	   "age": 26,
+	   "class":"JAVA, SQL, AngularJS",
+	   "address":"21212 london street, San Jose, CA",
+	      "id":2
+	}
+	,
+	{
+	  "name":"Mr Kumar",
+	   "age": 23,
+	   "class":"JAVA, SQL",
+	   "address":"21212 london street, San Jose, CA",
+	      "id":3
+	}
+		
+
+	
+]
+}

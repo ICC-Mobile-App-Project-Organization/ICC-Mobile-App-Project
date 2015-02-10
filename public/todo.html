@@ -1,0 +1,53 @@
+
+
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+
+<style>
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+</style>
+       <aside class="right-side">
+                <section class="content-header">
+                    <h1>
+                        Dashboard
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Table</li>
+                    </ol>
+                </section>
+
+
+            <section class="content" >
+
+
+              
+
+              <div>
+                <h2>Daily Task</h2>
+              <div>
+                <span>{{remaining()}} of {{todos.length}} remaining</span>
+                [<a href="" ng-click="archive()">archive</a>]
+                <ul class="unstyled">
+                  <li ng-repeat="todo in todos">
+                  <input type="checkbox" ng-model="todo.done">
+                  <span class="done-{{todo.done}}">{{todo.text}}</span>
+                  </li>
+                </ul>
+              <form ng-submit="addTodo()">
+              <input type="text" ng-model="todoText"  size="30"
+              placeholder="add new task here">
+              <input class="btn-primary" type="submit" value="add">
+              </form>
+              </div>
+              </div>
+
+
+
+
+            </section>
+        </aside>

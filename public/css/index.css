@@ -1,0 +1,85 @@
+.logo-img{height: 40px;width: 300px;}
+.logo-font{font-family: 'Kaushan Script', cursive; font-size: 200%;font-weight: bold;padding-left: 1cm;float: left;color: #000000;}
+
+.logo-go-right{position:absolute;right:30px;float: right;bottom:0px}
+
+
+.navbar-default{ height: 60px}
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+
+body {
+  margin: 10px;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+}
+
+.border-row {
+    border-bottom: 2px solid #ccc;
+}
+
+#myCarousel{height: 400px;width: 400px;}
+
+.user-pic{
+			height: 80px;width: 80px;
+			border-radius: 50% 50% 50% 50%;
+}
+
+.btn-separator:after {
+    content: ' ';
+    display: block;
+    float: left;
+    background: #ADADAD;
+    margin: 0 10px;
+    height: 20px;
+    width: 1px;
+}
+
+.gobule{ color:#337AB7;}
+
+
+
+
+svg {
+  font-family: "Helvetica Neue", Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+
+
+

@@ -1,0 +1,34 @@
+       <aside class="right-side">
+                <section class="content-header">
+                    <h1>
+                        Dashboard
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Components</li>
+                    </ol>
+                </section>
+
+
+            <section class="content" >
+
+                <tabs>
+                <pane title="Localization">
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+                </pane>
+                <pane title="Pluralization">
+                <div>
+                <div ng-repeat="beerCount in beers">
+                <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+                </div>
+                </div>
+                </pane>
+                </tabs>
+
+
+                
+            </section>
+        </aside>
