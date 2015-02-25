@@ -28,7 +28,7 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 // configuration ===============================================================
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 require('./config/passport')(passport); // pass passport for configuration
-app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/views')); 				// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); 										// log every request to the console
 app.use(bodyParser.urlencoded({'extended':'true'})); 			// parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); 									// parse application/json

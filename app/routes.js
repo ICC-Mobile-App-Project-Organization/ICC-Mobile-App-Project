@@ -1,5 +1,5 @@
 var Logininfo = require('./models/logininfo');
-
+var Pin = require('./models/location');
 
 
 module.exports = function(app,passport) {
@@ -16,8 +16,12 @@ app.get('/profile',isLoggedIn,
 		res.render('profile.ejs', {
 			user : req.user
 		});
+
 		console.log("current session is :" +req.session.uname);
 	});
+
+
+
 
 app.get('/logout', function(req, res) {
 	req.logout();
@@ -83,8 +87,77 @@ app.post('/connect/local', passport.authenticate('local-signup', {
 	failureFlash : true // allow flash messages
 }));
 
+	app.get('/api/pins', function(req, res) {
+		console.log('receive get');
+		Pin.find(function(err, pins) {
+			if (err)
+				res.send(err)
+			res.json(pins); 
+			console.log(pins);	//debug 
+		});
+	});
+
+	app.get('/api/pins/:pin_id',function(req,res){
+
+		console.log('receive get id');
+		Pin.findById(req.params.pin_id,function(err,pins){
+			if(err)
+				res.send(err);
+			res.json(pins);
+		});
+	});
+
+	app.put('/api/pins/:pin_id',function(req, res){
+
+		Pin.findById(req.params.pin_id,function(err, pins){
+			if(err)
+				res.send(err);
+			console.log(pins);
+			pins.pinname = req.body.pinname;
+			pins.save(function(err){
+				if(err)
+					res.send(err);
+				res.json({ message: 'pin undated!'});
+			});
+		});
+	});
 
 
+    app.post('/api/pins', function(req, res) {
+
+        Pin.create({ 
+            uname : req.body.uname,
+            pinname: req.body.pinname,
+            lat : req.body.lat,
+            lng : req.body.lng
+        }, function(err, pin) {
+            if (err)
+                res.send(err);
+
+            Pin.find(function(err, pins) {
+                if (err)
+                    res.send(err)
+                res.json(pins);
+            });
+        });
+
+    });
+
+	app.delete('/api/pins/:pin_id', function(req, res) {
+		Pin.remove({
+			_id : req.params.pin_id
+		}, function(err, pin) {
+			if (err)
+				res.send(err);
+
+			
+			Pin.find(function(err, pins) {
+				if (err)
+					res.send(err)
+				res.json(pins);
+			});
+		});
+	});
 
 	app.get('/api/logininfos', function(req, res) {
 		console.log('receive get');
