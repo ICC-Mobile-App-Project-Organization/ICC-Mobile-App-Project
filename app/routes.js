@@ -3,17 +3,39 @@ var Pin = require('./models/location');
 
 
 module.exports = function(app,passport) {
+  
+app.get('/api/map', function(req, res) {
+    req.db.get("map").find({},{},function(e,docs){
+        res.write(JSON.stringify(docs));
+        console.log("e:"+e);
+        res.end();
+    });
+});
+ 
+app.post('/api/map', function(req, res) {
+    console.log(req.body);
+    req.db.get("map").insert(req.body,{w: 1},function(err, records){
+        console.log("Record added as "+records._id);
+        res.write(JSON.stringify(records));
+        res.end();
+    });
+});
 
 
-app.get('/',
+
+
+
+
+
+app.get('/start',
 	function(req,res){
-		res.render('index.ejs');
+		res.render('start.ejs');
 	}
 	);
 
-app.get('/profile',isLoggedIn,
+app.get('/',isLoggedIn,
 	function(req,res){
-		res.render('profile.ejs', {
+		res.render('index.ejs', {
 			user : req.user
 		});
 
@@ -39,7 +61,7 @@ app.get('/login',
 
 //************ need modify auth progress
 app.post('/login',passport.authenticate('local-login', {
-			successRedirect : '/profile', // redirect to the secure profile section
+			successRedirect : '/#/map', // redirect to the secure profile section
 			failureRedirect : '/login', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		}),
@@ -65,7 +87,7 @@ app.get('/signup',
 	);
 
 app.post('/signup', passport.authenticate('local-signup', {
-	successRedirect : '/profile', // redirect to the secure profile section
+	successRedirect : '/#/map', // redirect to the secure profile section
 	failureRedirect : '/signup', // redirect back to the signup page if there is an error
 	failureFlash : true // allow flash messages
 }));
@@ -82,7 +104,7 @@ app.get('/connect/local', function(req, res) {
 	res.render('connect-local.ejs', { message: req.flash('loginMessage') });
 });
 app.post('/connect/local', passport.authenticate('local-signup', {
-	successRedirect : '/profile', // redirect to the secure profile section
+	successRedirect : '/#/map', // redirect to the secure profile section
 	failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
 	failureFlash : true // allow flash messages
 }));

@@ -1,0 +1,31 @@
+			{{message}}
+
+
+
+			<div id="YourElementId" >
+			<div id="googleMap" style="width:500px;height:380px;"></div>
+			    <input id="nameInput" ng-model="nameNg"/>
+			<button id="addButton" type="button" ng-click="add()">Add</button>
+			<button id="cancelButton" type="button" onclick="cancel()">cancel</button>
+			<button type="button" ng-click="moveTo()">New York City</button>
+			<button type="button" onclick="locate()">Current Location</button>
+
+			<p id="position">position:</p>
+			<p id = "placeList"></p>
+			=======================
+			<table>
+			    <tr>
+			        <th>ID</th>
+			        <th>NAME</th>
+			        <th>LAT</th>
+			        <th>LNG</th>
+			    </tr>
+			<p>{{nameNg}}</p>
+			    <tr ng-repeat="(id,position) in positions">
+			        <td>{{id}}</td>
+			        <td>{{position.name}}</td>
+			        <td>{{position.lat}}</td>
+			        <td>{{position.lng}}</td>
+			    </tr>
+			</table>
+			</div>
