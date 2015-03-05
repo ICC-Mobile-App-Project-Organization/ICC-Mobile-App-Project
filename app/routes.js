@@ -1,6 +1,6 @@
 var Logininfo = require('./models/logininfo');
 var Pin = require('./models/location');
-
+ 
 
 module.exports = function(app,passport) {
   
@@ -11,7 +11,7 @@ app.get('/api/map', function(req, res) {
         res.end();
     });
 });
- 
+    
 app.post('/api/map', function(req, res) {
     console.log(req.body);
     req.db.get("map").insert(req.body,{w: 1},function(err, records){

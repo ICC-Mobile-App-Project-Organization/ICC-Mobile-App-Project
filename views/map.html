@@ -1,19 +1,40 @@
-			{{message}}
+<style>
+	#nameInput{
+		position: absolute; left:100px; top: 50px; 
+	}
+	#googleMap{
+		height:800px;
+	}
+	#addButton{
+		position: absolute; left:300px; top: 50px;
+	}
+	#cancelButton{
+		position: absolute; left:350px; top: 50px;
+	}
+	#cancelButton{
+		position: absolute; left:350px; top: 50px;
+	}
+	#current{
+		position: absolute; left:420px; top: 50px;
+	}
+	#positionDiv{
+		position: absolute; left:400px; top: 100px; background-color: white;
+	}
 
-
+</style>
 
 			<div id="YourElementId" >
-			<div id="googleMap" style="width:500px;height:380px;"></div>
-			    <input id="nameInput" ng-model="nameNg"/>
+			<div id="googleMap"></div>
+			    <input id="nameInput" ng-model="nameNg" placeholder="search"/>
 			<button id="addButton" type="button" ng-click="add()">Add</button>
 			<button id="cancelButton" type="button" onclick="cancel()">cancel</button>
-			<button type="button" ng-click="moveTo()">New York City</button>
-			<button type="button" onclick="locate()">Current Location</button>
-
+			<button  type="button" ng-click="moveTo()">New York City</button>
+			<button id="current" type="button" onclick="locate()">Current Location</button>
+			<div id="positionDiv">
 			<p id="position">position:</p>
 			<p id = "placeList"></p>
 			=======================
-			<table>
+			<table id="pinTable">
 			    <tr>
 			        <th>ID</th>
 			        <th>NAME</th>
@@ -28,4 +49,5 @@
 			        <td>{{position.lng}}</td>
 			    </tr>
 			</table>
+			</div>
 			</div>

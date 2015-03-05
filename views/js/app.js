@@ -8,7 +8,7 @@ var counter=0;
 var positions;
 var addButton;
 var cancelButton;
-var url = "http://localhost:3003/api/map";
+var url = "http://localhost:3003/api/pins";
 
 
 
@@ -47,8 +47,8 @@ routerApp.config(
 		.state('map', {
 	    url: '/map',
 	    templateUrl: 'map.html',
-	    controller: ['$scope', 'PositionManager', function(scope, positionManager){
-            google.maps.event.addDomListener(window, 'load', initMap);
+	    controller: ['$scope', 'PositionManager', function(scope, PositionManager){
+            initMap(scope,PositionManager);
             scope.message = 'ui router works';
             scope.positions={};
 
@@ -58,7 +58,7 @@ routerApp.config(
                 var name = document.getElementById("nameInput").value;
                 document.getElementById("nameInput").value="";
                 var newPin = {name:name,lat:tempMarker.position.lat(),lng:tempMarker.position.lng()};
-                positionManager.push(newPin,function(data){
+                PositionManager.push(newPin,function(data){
                     scope.positions[data._id] ={name:data.name,lat:data.lat, lng:data.lng};
                     tempMarker.setAnimation(null);
                     tempMarker.infowindow.close();
@@ -73,30 +73,6 @@ routerApp.config(
                     positions["5"] = {name: "test", lat: "123", lng: "312"};
             }
 
-            function initMap() {
-                ouputText = document.getElementById("position");
-                addButton = document.getElementById("addButton");
-                cancelButton = document.getElementById("cancelButton");
-
-                addButton.disabled = true;
-                cancelButton.disabled=true;
-                var mapProp = {
-                    center:new google.maps.LatLng(40.7127,-74.0059),
-                    zoom:5,
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
-                };
-                map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-                positionManager.list(function (data) {
-                    for (i in data) {
-                        scope.positions[data[i]._id] = {name:data[i].name,lat:data[i].lat, lng:data[i].lng};
-                        dropPin(data[i]._id, data[i].lat, data[i].lng);
-                    }
-                    pinsDidLoad=true;
-                });
-
-                setMapOnclickListener(map);
-            }
         }]
 	});
 	});
@@ -107,7 +83,8 @@ routerApp.config(
 
 
        //map functions
-            function initMap() {
+        function initMap(scope,PositionManager) {
+                console.log('initMap called');
                 ouputText = document.getElementById("position");
                 addButton = document.getElementById("addButton");
                 cancelButton = document.getElementById("cancelButton");
@@ -117,11 +94,13 @@ routerApp.config(
                 var mapProp = {
                     center:new google.maps.LatLng(40.7127,-74.0059),
                     zoom:5,
+                    disableDoubleClickZoom:true,
+                    disableDefaultUI:true,
                     mapTypeId:google.maps.MapTypeId.ROADMAP
                 };
                 map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-                positionManager.list(function (data) {
+                PositionManager.list(function (data) {
                     for (i in data) {
                         scope.positions[data[i]._id] = {name:data[i].name,lat:data[i].lat, lng:data[i].lng};
                         dropPin(data[i]._id, data[i].lat, data[i].lng);
